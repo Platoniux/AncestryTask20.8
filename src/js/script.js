@@ -2,11 +2,8 @@ var averages = [averageAgeDifference(ANCESTRY_FILE), averageAge(ANCESTRY_FILE, '
 
 var headlineForStatistics = ['Average age difference between mothers and their children', 'Average age of men', 'Average age of women'];
 
-
 createCards(ANCESTRY_FILE);
 createHeadlineAndStatistic(averages, headlineForStatistics, 'Ancestry of one dude');
-
-
 
 function averageAgeDifference(arr) {
   var average = 0;
@@ -18,8 +15,6 @@ function averageAgeDifference(arr) {
         average = average + (arr[i]['born'] - arr[j]['born']);
         ++count;
         continue outer;
-      } else {
-        continue;
       }
     }
   }
@@ -34,8 +29,6 @@ function averageAge(arr, sex) {
     if (arr[i]['sex'] === sex) {
       average += arr[i]['died'] - arr[i]['born'];
       ++count; 
-    } else {
-      continue;
     }
   }
   average = (Math.round((average / count) * 100) / 100);
